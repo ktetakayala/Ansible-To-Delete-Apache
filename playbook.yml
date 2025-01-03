@@ -1,13 +1,14 @@
 ---
--  name : Uninstall apache server
-hosts : webservers
-become : true
-tasks : 
-  - name : Uninstall apache
-  apt : 
-    name : apache2
-    state : absent
-  - name : Remove all the apache configuration files 
-    file:
-      path : /etc/apache2
-      state : absent
+- name: Uninstall Apache Server
+  hosts: webservers
+  become: true
+  tasks:
+    - name: Uninstall Apache
+      apt:
+        name: apache2
+        state: absent
+
+    - name: Remove all Apache configuration files
+      file:
+        path: /etc/apache2
+        state: absent
