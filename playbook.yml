@@ -1,6 +1,8 @@
 ---
 - name: Uninstall Apache Server
   hosts: webservers
+  vars_files:
+    - vars.yml
   become: true
   tasks:
     - name: Uninstall Apache
